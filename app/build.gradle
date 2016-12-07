@@ -1,4 +1,19 @@
 apply plugin: 'com.android.application'
+apply plugin: 'me.tatarka.retrolambda'
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'me.tatarka:gradle-retrolambda:3.1.0'
+    }
+}
+
+repositories {
+    mavenCentral()
+}
 
 android {
     compileSdkVersion 24
@@ -11,19 +26,62 @@ android {
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
 }
 
 dependencies {
+    // testing
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'com.android.support:appcompat-v7:24.2.1'
     testCompile 'junit:junit:4.12'
+
+    // rx
+    compile 'io.reactivex:rxandroid:1.2.1'
+    compile 'io.reactivex:rxjava:1.1.6'
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
+
+}
+
+// this only works on Mac
+String getJavaHome(String version) {
+    def stdout = new ByteArrayOutputStream()
+    try {
+        exec {
+            commandLine "/usr/libexec/java_home", "-v", version
+            standardOutput = stdout;
+        }
+        return stdout.toString().trim()
+    } catch (Exception exception) {
+        return null
+    }
+}
+
+retrolambda {
+    def jdkPath = System.getenv("JAVA8_HOME") ?: getJavaHome("1.8")
+    def java7Home = System.getenv("JAVA7_HOME") ?: getJavaHome("1.7")
+    def java6Home = System.getenv("JAVA6_HOME") ?: getJavaHome("1.6")
+    def oldJdkPath = java7Home ?: java6Home
+    logger.debug("retrolambda jdkPath - " + jdkPath)
+    logger.debug("retrolambda oldJdkPath - " + oldJdkPath)
+
+    jdk jdkPath
+    oldJdk oldJdkPath
+
+    // http://stackoverflow.com/questions/300639/use-of-noverify-when-launching-java-apps
+    // https://github.com/evant/gradle-retrolambda/issues/31
+    jvmArgs '-noverify'
 }
