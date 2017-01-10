@@ -71,15 +71,15 @@ String getJavaHome(String version) {
 }
 
 retrolambda {
-    def jdkPath = System.getenv("JAVA8_HOME") ?: getJavaHome("1.8")
-    def java7Home = System.getenv("JAVA7_HOME") ?: getJavaHome("1.7")
-    def java6Home = System.getenv("JAVA6_HOME") ?: getJavaHome("1.6")
-    def oldJdkPath = java7Home ?: java6Home
-    logger.debug("retrolambda jdkPath - " + jdkPath)
-    logger.debug("retrolambda oldJdkPath - " + oldJdkPath)
-
-    jdk jdkPath
-    oldJdk oldJdkPath
+//    def jdkPath = System.getenv("JAVA8_HOME") ?: getJavaHome("1.8")
+//    def java7Home = System.getenv("JAVA7_HOME") ?: getJavaHome("1.7")
+//    def java6Home = System.getenv("JAVA6_HOME") ?: getJavaHome("1.6")
+//    def oldJdkPath = java7Home ?: java6Home
+//    logger.debug("retrolambda jdkPath - " + jdkPath)
+//    logger.debug("retrolambda oldJdkPath - " + oldJdkPath)
+//
+//    jdk jdkPath
+//    oldJdk oldJdkPath
 
     // http://stackoverflow.com/questions/300639/use-of-noverify-when-launching-java-apps
     // https://github.com/evant/gradle-retrolambda/issues/31
