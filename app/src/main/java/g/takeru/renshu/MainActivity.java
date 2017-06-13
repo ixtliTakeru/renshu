@@ -1,10 +1,10 @@
 package g.takeru.renshu;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
-import g.takeru.renshu.rx.AsyncToRxActivity;
+import g.takeru.renshu.kotlin.KotlinActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        startActivity(new Intent(this, AsyncToRxActivity.class));
+        Intent intent = new Intent(this, KotlinActivity.class);
+        startActivity(intent);
     }
 }
