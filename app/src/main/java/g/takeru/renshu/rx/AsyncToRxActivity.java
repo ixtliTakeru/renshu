@@ -2,7 +2,6 @@ package g.takeru.renshu.rx;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 
 import g.takeru.renshu.R;
 import rx.Observable;
@@ -10,6 +9,7 @@ import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Func0;
 import rx.schedulers.Schedulers;
+import timber.log.Timber;
 
 /**
  * Created by takeru on 2016/12/7.
@@ -18,8 +18,6 @@ import rx.schedulers.Schedulers;
  */
 
 public class AsyncToRxActivity extends AppCompatActivity{
-
-    private static final String TAG = AsyncToRxActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +33,7 @@ public class AsyncToRxActivity extends AppCompatActivity{
                     @Override
                     public void onNext(String uri) {
                         // after photo saved, do next step
-                        Log.d(TAG, "uri: " + uri);
+                        Timber.d("uri: " + uri);
                     }
 
                     @Override
@@ -50,7 +48,7 @@ public class AsyncToRxActivity extends AppCompatActivity{
 
     // we do more io operation
     private String savePhoto(byte[] data){
-        Log.d(TAG, "savePhoto");
+        Timber.d("savePhoto");
         return "uri";
     }
 
