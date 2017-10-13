@@ -39,7 +39,7 @@ class SortListActivity: AppCompatActivity() {
         }
 
 //        val adapter = UserListAdapter(this, userList, {user -> Timber.d(user.name)})
-        val adapter = UserListAdapter(this, userList, onClickListener)
+        val adapter = UserListAdapter(userList, onClickListener)
 
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter

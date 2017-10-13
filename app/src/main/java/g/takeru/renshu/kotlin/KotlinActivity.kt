@@ -23,7 +23,7 @@ class KotlinActivity : AppCompatActivity(){
 
     private fun bindView() {
         // Basic View Binding
-        var textView: TextView? = null
+        var textView: TextView?
         textView = findViewById(R.id.text) as TextView
         textView.setText("Basic View Binding")
 

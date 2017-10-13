@@ -1,6 +1,5 @@
 package g.takeru.renshu.kotlin
 
-import android.content.Context
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -12,13 +11,13 @@ import kotlinx.android.synthetic.main.listitem_user.view.*
  * Created by takeru on 2017/9/12.
  */
 
-internal class UserListAdapter(private val context: Context, private val userList: List<User>,
+internal class UserListAdapter(private val userList: List<User>,
                                private val itemClickListener: (User)->Unit)
     : RecyclerView.Adapter<UserListAdapter.UserViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserListAdapter.UserViewHolder {
         return UserViewHolder(
-                LayoutInflater.from(context).inflate(R.layout.listitem_user, parent, false))
+                LayoutInflater.from(parent.context).inflate(R.layout.listitem_user, parent, false))
     }
 
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
