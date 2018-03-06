@@ -27,6 +27,7 @@
 
         <activity android:name=".kotlin.SmsReceiverActivity"/>
         <activity android:name=".kotlin.SortListActivity" />
+        <activity android:name=".animation.LottieActivity" />
     </application>
 
 </manifest>
