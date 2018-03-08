@@ -29,7 +29,7 @@ install:
   - echo yes | sdkmanager "extras;m2repository;com;android;support;constraint;constraint-layout;1.0.2"
   - echo yes | sdkmanager "extras;m2repository;com;android;support;constraint;constraint-layout-solver;1.0.2"
 script:
-  - "./gradlew assembleStagingDebug"   # assembleStagingDebug is debug build, crashlyticsUploadDistributionStagingDebug is the task to distrubte via Fabric Beta
+  - "./gradlew assembleDebug"   # assembleStagingDebug is debug build, crashlyticsUploadDistributionStagingDebug is the task to distrubte via Fabric Beta
 #- "./gradlew assembleProductionRelease crashlyticsUploadDistributionProductionRelease" # assembleProductionRelease is production build includes signing information in build.gradle. crashlyticsUploadDistributionProductionRelease is the task to distrubte via Fabric Beta
 #- "./gradlew emailApk"  # I added a new task in build.gradle. send out the apk via SMTP
 before_cache:
