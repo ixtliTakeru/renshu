@@ -42,14 +42,9 @@ class SortListActivity: AppCompatActivity() {
             Timber.d("user: " + userList[i].name + " " + userList[i].age)
         }
 
-
-//        val adapter = UserListAdapter(userList, {user -> Timber.d(user.name)})
-//        val adapter = UserListAdapter(userList, onClickListener)
-        adapter = UserListAdapter(userList, itemClickListener = {onClickListener})
-
+        adapter = UserListAdapter(userList, itemClickListener = onClickListener)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
-
 
         addBtn.setOnClickListener(addUserClickListener)
         delBtn.setOnClickListener(delUserClickListener)

@@ -14,10 +14,10 @@ import kotlinx.android.synthetic.main.listitem_user.view.*
 
 internal class UserListAdapter : RecyclerView.Adapter<UserListAdapter.UserViewHolder> {
 
-    lateinit var userList: MutableList<User>
-    lateinit var itemClickListener: (User)->Unit
+    private lateinit var userList: MutableList<User>
+    private lateinit var itemClickListener: (User)->Unit
 
-    constructor() {}
+    constructor()
 
     constructor(userList: MutableList<User>,
                 itemClickListener: (User)->Unit) {
@@ -34,7 +34,6 @@ internal class UserListAdapter : RecyclerView.Adapter<UserListAdapter.UserViewHo
         val user = userList[position]
 
         holder.container.setOnClickListener{itemClickListener(user)}
-//        holder.container.setOnClickListener{Timber.d(user.name)}
         holder.nameTv.text = user.name
         holder.ageTv.text = user.age.toString()
     }
