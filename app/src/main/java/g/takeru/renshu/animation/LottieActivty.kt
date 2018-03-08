@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity
 import android.widget.SeekBar
 import com.airbnb.lottie.SimpleColorFilter
 import g.takeru.renshu.R
-import g.takeru.renshu.kotlin.User
 import kotlinx.android.synthetic.main.activity_lottie.*
 
 
@@ -36,20 +35,20 @@ class LottieActivity : AppCompatActivity(){
 //        Timber.d("Frame: " + lottieAnimationView2.scale);
 
         // TODO progress seekBar
-        scaleSeekBar.progress = (lottieAnimationView2.scale * 50F).toInt()
-        scaleSeekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
-            override fun onStartTrackingTouch(p0: SeekBar?) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-            }
-
-            override fun onStopTrackingTouch(p0: SeekBar?) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-            }
-
-            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, p2: Boolean) {
-                lottieAnimationView2.scale = progress / 50F
-            }
-        })
+//        scaleSeekBar.progress = (lottieAnimationView2.scale * 50F).toInt()
+//        scaleSeekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+//            override fun onStartTrackingTouch(p0: SeekBar?) {
+//                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+//            }
+//
+//            override fun onStopTrackingTouch(p0: SeekBar?) {
+//                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+//            }
+//
+//            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, p2: Boolean) {
+//                lottieAnimationView2.scale = progress / 50F
+//            }
+//        })
 
 //        lottieAnimationView2.addAnimatorListener(AnimatorListenerAdapter(
 //                startRecordingDroppedFrames(),
@@ -66,12 +65,6 @@ class LottieActivity : AppCompatActivity(){
 //                    startRecordingDroppedFrames()
 //                }
 //        ))
-
-        var tim : User = User("tim", 20)
-        var jack = tim.copy(age = 11)
-
-        var a : String = "aaa"
-        a = "bbb"
     }
 
     private var listener: SeekBar.OnSeekBarChangeListener = object : SeekBar.OnSeekBarChangeListener {
@@ -99,28 +92,5 @@ class LottieActivity : AppCompatActivity(){
         override fun onAnimationRepeat(animation: Animator) = onRepeat?.invoke(animation) ?: Unit
         override fun onAnimationEnd(animation: Animator) = onEnd?.invoke(animation) ?: Unit
         override fun onAnimationCancel(animation: Animator) = onCancel?.invoke(animation) ?: Unit
-    }
-
-    private var startRecordingDroppedFrames : ((Animator) -> Unit) = {
-
-    }
-
-    private open class test : Animator.AnimatorListener {
-
-        override fun onAnimationStart(animator: Animator) {
-
-        }
-
-        override fun onAnimationEnd(animator: Animator) {
-
-        }
-
-        override fun onAnimationCancel(animator: Animator) {
-
-        }
-
-        override fun onAnimationRepeat(animator: Animator) {
-
-        }
     }
 }
