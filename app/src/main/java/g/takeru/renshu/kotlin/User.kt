@@ -1,5 +1,8 @@
 package g.takeru.renshu.kotlin
 
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
 /**
  * Created by takeru on 2017/9/11.
  */
@@ -23,4 +26,5 @@ package g.takeru.renshu.kotlin
 //    }
 //}
 
-class User(val name: String, val age: Int)
+@Parcelize
+data class User(val name: String, val age: Int) : Parcelable
