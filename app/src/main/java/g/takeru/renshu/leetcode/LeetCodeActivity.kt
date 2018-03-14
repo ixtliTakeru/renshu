@@ -14,15 +14,23 @@ class LeetCodeActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // #1 Two Sum
+        // 1. Two Sum
         val testData = intArrayOf(2, 7, 11, 15)
         val target = 9
-        var result = TwoSum().solution1(testData, target)
-        Timber.d("[${result!![0]}, ${result!![1]}]")
-        result = TwoSum().solution2(testData, target)
-        Timber.d("[${result!![0]}, ${result!![1]}]")
+        var no1Result = TwoSum().solution1(testData, target)
+        Timber.d("[${no1Result!![0]}, ${no1Result!![1]}]")
+        no1Result = TwoSum().solution2(testData, target)
+        Timber.d("[${no1Result!![0]}, ${no1Result!![1]}]")
 
-        
+        // 2. Add Two Numbers
 
+
+        // 7. Reverse Integer
+        var no7Result = ReverseInteger().solution2(123)
+        Timber.d("$no7Result")
+        no7Result = ReverseInteger().solution(-123)
+        Timber.d("$no7Result")
+        no7Result = ReverseInteger().solution2(120)
+        Timber.d("$no7Result")
     }
 }
