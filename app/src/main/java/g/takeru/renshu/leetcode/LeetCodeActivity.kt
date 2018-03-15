@@ -32,5 +32,13 @@ class LeetCodeActivity : AppCompatActivity(){
         Timber.d("$no7Result")
         no7Result = ReverseInteger().solution2(120)
         Timber.d("$no7Result")
+
+        // 9. Palindrome Number
+        var no9Result = PalindromeNumber().solution1(12311)
+        Timber.d("$no9Result")
+        no9Result = PalindromeNumber().solution2(12321)
+        Timber.d("$no9Result")
+        no9Result = PalindromeNumber().solution3(12321)
+        Timber.d("$no9Result")
     }
 }
