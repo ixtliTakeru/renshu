@@ -20,7 +20,6 @@ class LeetCodeActivity : AppCompatActivity(){
         problemList.add(Problem(7, "Reverse Integer", { ReverseInteger().testing() }))
         problemList.add(Problem(9, "Palindrome Number", { PalindromeNumber().testing() }))
         problemList.add(Problem(334, "Reverse String", { ReverseString().testing() }))
-        problemList.add(Problem(123, "Test", null))
 
 
         val listAdapter = ProblemListAdapter(problemList)
