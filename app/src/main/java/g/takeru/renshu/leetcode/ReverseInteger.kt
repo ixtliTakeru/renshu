@@ -27,6 +27,15 @@ class ReverseInteger {
 
     // hint: using long to save 32-bit integer
 
+    fun testing() {
+        var result = ReverseInteger().solution2(123)
+        Timber.d("solution1 : $result")
+        result = ReverseInteger().solution(-123)
+        Timber.d("solution2 : $result")
+        result = ReverseInteger().solution2(120)
+        Timber.d("solution3 : $result")
+    }
+
     fun solution(x: Int): Int {
         val sign = if (x > 0) 1 else -1
         var originString : String = Math.abs(x).toString()

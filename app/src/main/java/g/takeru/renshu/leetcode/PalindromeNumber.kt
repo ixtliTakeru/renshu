@@ -1,5 +1,7 @@
 package g.takeru.renshu.leetcode
 
+import timber.log.Timber
+
 
 /**
  * Created by takeru on 2018/3/15.
@@ -20,6 +22,15 @@ class PalindromeNumber {
      * handle such case?
      * There is a more generic way of solving this problem.
      */
+
+    fun testing() {
+        var result = PalindromeNumber().solution1(12311)
+        Timber.d("solution1 : $result")
+        result = PalindromeNumber().solution2(12321)
+        Timber.d("solution2 : $result")
+        result = PalindromeNumber().solution3(12321)
+        Timber.d("solution3 : $result")
+    }
 
 
     // 0 is palindrome, negative integers not be palindromes
