@@ -22,7 +22,7 @@ internal class ProblemListAdapter(private var problemList : MutableList<Problem>
     override fun onBindViewHolder(holder : ProblemViewHolder, position : Int){
         val problem = problemList[position]
 
-        holder.container.setOnClickListener{ problem?.itemClickListener }
+        holder.container.setOnClickListener{ problem.itemClickListener() }
         holder.nameTv.text = "NO." + problem.index.toString()
         holder.ageTv.text = problem.name
     }
