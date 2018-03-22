@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">Renshu</string>
+
+    <string name="mountain_chart_day">Day</string>
+    <string name="mountain_chart_week">Week</string>
+    <string name="mountain_chart_month">Month</string>
+    <string name="mountain_chart_year">Year</string>
+
+    <string name="custom_view_wave_view">Wave View</string>
+    <string name="custom_view_mountain_chart">Mountain Chart</string>
+    <string name="custom_view_touch_mountain_chart">Touch Mountain Chart</string>
 </resources>

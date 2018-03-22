@@ -21,6 +21,7 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".customview.CustomViewActivity" />
         <activity android:name=".architecture.mvp.LoginActivity" />
 
         <activity android:name=".rx.AsyncToRxActivity"/>

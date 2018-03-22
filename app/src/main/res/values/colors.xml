@@ -3,4 +3,9 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="waveLine_8">#026BD6CD</color>
+    <color name="waveLine_30">#4D6BD6CD</color>
+    <color name="waveLine_80">#CC6BD6CD</color>
+    <color name="waveLine_100">#FF6BD6CD</color>
 </resources>

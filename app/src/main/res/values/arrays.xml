@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+
+    <string-array name="mountain_chart_day">
+        <item>Morning</item>
+        <item>Afternoon</item>
+        <item>Night</item>
+        <item>Early morning</item>
+    </string-array>
+
+    <string-array name="mountain_chart_week">
+        <item>SUN</item>
+        <item>MON</item>
+        <item>TUS</item>
+        <item>WED</item>
+        <item>THU</item>
+        <item>FRI</item>
+        <item>SAT</item>
+    </string-array>
+
+    <string-array name="mountain_chart_month">
+        <item>Week 1</item>
+        <item>Week 2</item>
+        <item>Week 3</item>
+        <item>Week 4</item>
+        <item>Week 5</item>
+    </string-array>
+
+    <string-array name="mountain_chart_year">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+    </string-array>
+
+</resources>

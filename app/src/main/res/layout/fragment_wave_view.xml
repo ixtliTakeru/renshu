@@ -1,0 +1,52 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="160dp"
+        android:layout_centerHorizontal="true"
+        android:text="WaterLine"
+        android:textColor="@color/waveLine_80"
+        android:textSize="30sp"/>
+
+    <g.takeru.renshu.customview.waveview.WaveView
+        android:id="@+id/waveview_WaveView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/waveview_sensor_value" />
+
+    <LinearLayout
+        android:id="@+id/waveview_sensor_value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:background="@android:color/black">
+
+        <TextView
+            android:id="@+id/waveview_sensor_x"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@android:color/white"/>
+        <TextView
+            android:id="@+id/waveview_sensor_y"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@android:color/white"/>
+        <TextView
+            android:id="@+id/waveview_sensor_z"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@android:color/white"/>
+    </LinearLayout>
+
+</RelativeLayout>

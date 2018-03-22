@@ -1,0 +1,63 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <LinearLayout
+        android:id="@+id/mountainChartView_btn_layout"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_alignParentTop="true"
+        android:orientation="horizontal"
+        android:gravity="right|center_vertical">
+        <Button
+            android:id="@+id/mountainChartView_btn_day"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/bg_circle"
+            android:text="@string/mountain_chart_day"
+            android:textColor="@android:color/black"/>
+        <Button
+            android:id="@+id/mountainChartView_btn_week"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/bg_circle"
+            android:text="@string/mountain_chart_week"
+            android:textColor="@android:color/black"/>
+        <Button
+            android:id="@+id/mountainChartView_btn_month"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/bg_circle"
+            android:text="@string/mountain_chart_month"
+            android:textColor="@android:color/black"/>
+        <Button
+            android:id="@+id/mountainChartView_btn_year"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_margin="5dp"
+            android:background="@drawable/bg_circle"
+            android:text="@string/mountain_chart_year"
+            android:textColor="@android:color/black"/>
+    </LinearLayout>
+
+
+    <g.takeru.renshu.customview.mountainchart.MountainChartView
+        android:id="@+id/mountainChartView_mainView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/mountainChartView_btn_layout"
+        android:layout_above="@+id/mountainChartView_axis_x"/>
+
+    <LinearLayout
+        android:id="@+id/mountainChartView_axis_x"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:paddingBottom="10dp"
+        android:orientation="horizontal"/>
+
+</RelativeLayout>
