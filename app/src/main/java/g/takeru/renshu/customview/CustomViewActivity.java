@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 
 import g.takeru.renshu.R;
+import g.takeru.renshu.customview.blur.BlurFragment;
 import g.takeru.renshu.customview.mountainchart.MountainChartFragment;
 import g.takeru.renshu.customview.mountainchart.TouchMountainChartFragment;
 import g.takeru.renshu.customview.waveview.WaveViewFragment;
@@ -55,6 +56,10 @@ public class CustomViewActivity extends AppCompatActivity{
             Fragment fragment = null;
             int titleResId = 0;
             switch (item.getItemId()) {
+                case R.id.custom_view_list_image_blur:
+                    fragment = new BlurFragment();
+                    titleResId = R.string.custom_view_image_blur;
+                    break;
                 case R.id.custom_view_list_wave_view:
                     fragment = new WaveViewFragment();
                     titleResId = R.string.custom_view_wave_view;
