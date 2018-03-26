@@ -1,35 +1,35 @@
 {
   "project_info": {
-    "project_number": "xxxxx",
-    "firebase_url": "xxxxx",
-    "project_id": "xxxxx",
-    "storage_bucket": "xxxxx"
+    "project_number": "xxxxxxxxxxxx",
+    "firebase_url": "https://xxxxxx-xxxxx.firebaseio.com",
+    "project_id": "xxxxxx-xxxxx",
+    "storage_bucket": "xxxxxx-xxxxx.xxxspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "xxxxx",
+        "mobilesdk_app_id": "0:000000000000:android:x0x0x0x0x0x0x0x0",
         "android_client_info": {
           "package_name": "g.takeru.renshu"
         }
       },
       "oauth_client": [
         {
-          "client_id": "xxxxx",
+          "client_id": "000000000000-x0x0x0x0x0x0x0x0x0x0x0x0x0x0x0x0.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "g.takeru.renshu",
-            "certificate_hash": "xxxxx"
+            "certificate_hash": "x0x0x0x0x0x0x0x0x0x0x0x0x0x0x0x0x0x0x0x0"
           }
         },
         {
-          "client_id": "xxxxx",
+          "client_id": "000000000000-x0x0x0x0x0x0x0x0x0x0x0x0x0x0x0x0.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "xxxxx"
+          "current_key": "A01010101010101010101001010101010101010"
         }
       ],
       "services": {
@@ -40,7 +40,7 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "xxxxx",
+              "client_id": "000000000000-x0x0x0x0x0x0x0x0x0x0x0x0x0x0x0x0.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
