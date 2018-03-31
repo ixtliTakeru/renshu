@@ -38,7 +38,6 @@ class AddTwoNumbers {
         var inputB = ReverseLinkedList().solution1(b1)
         val head = solution1(inputA, inputB)
         printLinkedList(head)
-        printLinkedList()
     }
 
     fun solution1(l1: ListNode?, l2: ListNode?): ListNode? {
