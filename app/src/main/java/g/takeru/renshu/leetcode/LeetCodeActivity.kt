@@ -18,10 +18,12 @@ class LeetCodeActivity : AppCompatActivity(){
         // create problem list
         var problemList : MutableList<Problem> = ArrayList()
         problemList.add(Problem(1, "Two Sum", { TwoSum().testing() }))
+        problemList.add(Problem(2, "Add Two Numbers", { AddTwoNumbers().testing() }))
         problemList.add(Problem(7, "Reverse Integer", { ReverseInteger().testing() }))
         problemList.add(Problem(9, "Palindrome Number", { PalindromeNumber().testing() }))
         problemList.add(Problem(206, "Reverse Linked List", { ReverseLinkedList().testing() }))
         problemList.add(Problem(334, "Reverse String", { ReverseString().testing() }))
+
 
         // initial adapter
         val listAdapter = ProblemListAdapter(problemList)

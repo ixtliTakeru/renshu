@@ -1,11 +1,9 @@
 package g.takeru.renshu.leetcode
 
-import timber.log.Timber
-
 /**
  * Created by takeru on 2018/3/20.
  */
-class ReverseLinkedList (){
+class ReverseLinkedList {
 
     /**
      * Reverse a singly linked list.
@@ -33,11 +31,7 @@ class ReverseLinkedList (){
         printLinkedList(solution2(c))
     }
 
-    class ListNode(var value: Int = 0) {
-        var next: ReverseLinkedList.ListNode? = null
-    }
-
-    private fun solution1(head: ListNode?): ListNode? {
+    fun solution1(head: ListNode?): ListNode? {
         var prev : ListNode? = null
         var curr = head
 
@@ -53,7 +47,7 @@ class ReverseLinkedList (){
         return prev
     }
 
-    private fun solution2(head: ListNode?): ListNode? {
+    fun solution2(head: ListNode?): ListNode? {
         if (head?.next == null)
             return head
         val p = solution2(head.next!!)
@@ -62,15 +56,5 @@ class ReverseLinkedList (){
         return p
     }
 
-    private fun printLinkedList(head: ListNode?) {
-        var curr = head
-        var linkedList = ""
-        while (curr != null) {
-            linkedList += curr.value.toString() + " -> "
-//            Timber.d("curr: ${curr?.value} -> ${curr?.next?.value}")
-            curr = curr.next
-        }
-        linkedList += "null"
-        Timber.d(linkedList)
-    }
+
 }
