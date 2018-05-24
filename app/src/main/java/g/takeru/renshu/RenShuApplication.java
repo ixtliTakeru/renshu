@@ -1,6 +1,7 @@
 package g.takeru.renshu;
 
 import android.app.Application;
+import android.support.annotation.Nullable;
 
 import timber.log.Timber;
 
@@ -9,6 +10,8 @@ import timber.log.Timber;
  */
 
 public class RenShuApplication extends Application{
+
+    private static RenShuApplication instance = null;
 
     @Override
     public void onCreate() {
@@ -19,5 +22,12 @@ public class RenShuApplication extends Application{
             Timber.plant(new Timber.DebugTree());
         } else {
         }
+
+        instance = this;
+    }
+
+    @Nullable
+    public static RenShuApplication getInstance() {
+        return instance;
     }
 }
