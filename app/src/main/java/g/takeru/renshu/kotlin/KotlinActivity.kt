@@ -54,6 +54,13 @@ class KotlinActivity : AppCompatActivity() {
         println("${jane.name}, ${jane.age} years of age") // prints "Jane, 35 years of age"
         Timber.d(name)
         Timber.d("$age")
+
+        // singleton
+        var s1 = Singleton.instance
+        s1.text = "test"
+        var s2 = Singleton.instance
+        Singleton.Companion.instance
+        Timber.d(s2.text)
     }
 
     // basic onClickListener
