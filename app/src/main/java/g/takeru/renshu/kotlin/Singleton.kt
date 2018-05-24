@@ -1,5 +1,10 @@
 package g.takeru.renshu.kotlin
 
+/**
+ * ref: http://johnnyshieh.me/posts/kotlin-singleton-pattern/
+ * ref: https://medium.com/@BladeCoder/kotlin-singletons-with-argument-194ef06edd9e
+ */
+
 class Singleton private constructor(){
     init {
         println("This ($this) is a singleton")
@@ -10,8 +15,8 @@ class Singleton private constructor(){
     }
 
     companion object {
-        val instance: Singleton by lazy {
-            Holder.INSTANCE }
+        val instance: Singleton by lazy { Holder.INSTANCE }
+    }
     }
 
     var text:String ?= null

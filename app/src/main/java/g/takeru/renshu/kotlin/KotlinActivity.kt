@@ -59,7 +59,6 @@ class KotlinActivity : AppCompatActivity() {
         var s1 = Singleton.instance
         s1.text = "test"
         var s2 = Singleton.instance
-        Singleton.Companion.instance
         Timber.d(s2.text)
     }
 
