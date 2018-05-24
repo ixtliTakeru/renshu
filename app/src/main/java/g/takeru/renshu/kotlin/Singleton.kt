@@ -17,7 +17,6 @@ class Singleton private constructor(){
     companion object {
         val instance: Singleton by lazy { Holder.INSTANCE }
     }
-    }
 
     var text:String ?= null
 }
