@@ -1,4 +1,4 @@
-package g.takeru.renshu.animation
+package g.takeru.renshu.kotlin.animation
 
 import android.animation.Animator
 import android.graphics.Color
