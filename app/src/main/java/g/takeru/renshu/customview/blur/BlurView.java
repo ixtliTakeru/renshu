@@ -10,6 +10,10 @@ import android.renderscript.RenderScript;
 import android.renderscript.ScriptIntrinsicBlur;
 import android.util.Log;
 
+/**
+ * ref: http://www.jcodecraeer.com/a/anzhuokaifa/androidkaifa/2015/0831/3389.html
+ */
+
 public class BlurView {
 
 	@SuppressLint("NewApi")
