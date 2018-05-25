@@ -40,20 +40,20 @@
         <activity android:name=".util.DateTimeUtilSampleActivity" />
 
         <!-- Firebase FCM -->
-        <service
-            android:name=".fcm.RenshuFcmService">
-            <intent-filter>
-                <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
-            </intent-filter>
-        </service>
+        <!--<service-->
+            <!--android:name=".fcm.RenshuFcmService">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>-->
+            <!--</intent-filter>-->
+        <!--</service>-->
 
 
-        <service
-            android:name=".fcm.RenshuFirebaseMessageService">
-            <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
-            </intent-filter>
-        </service>
+        <!--<service-->
+            <!--android:name=".fcm.RenshuFirebaseMessageService">-->
+            <!--<intent-filter>-->
+                <!--<action android:name="com.google.firebase.MESSAGING_EVENT"/>-->
+            <!--</intent-filter>-->
+        <!--</service>-->
 
         <!-- File Provider -->
         <provider
