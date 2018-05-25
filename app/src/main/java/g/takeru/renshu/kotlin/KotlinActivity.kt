@@ -5,7 +5,10 @@ import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.TextView
 import g.takeru.renshu.R
+import g.takeru.renshu.data.ApiManager
 import kotlinx.android.synthetic.main.activity_main.*
+import rx.android.schedulers.AndroidSchedulers
+import rx.schedulers.Schedulers
 import timber.log.Timber
 
 /**
@@ -60,6 +63,17 @@ class KotlinActivity : AppCompatActivity() {
         s1.text = "test"
         var s2 = Singleton.instance
         Timber.d(s2.text)
+
+        // api test
+        var apiManager = ApiManager.instance
+        apiManager.api
+                .getDataFromWiki("query", "json", "search", "taiwan")
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                        {response -> Timber.d("result: ${response.body()!!.query.searchinfo.totalhits}")},
+                        {throwable -> Timber.d(throwable.message)})
+
     }
 
     // basic onClickListener
