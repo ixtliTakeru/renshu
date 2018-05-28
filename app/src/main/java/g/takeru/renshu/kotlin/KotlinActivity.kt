@@ -74,6 +74,22 @@ class KotlinActivity : AppCompatActivity() {
                         {response -> Timber.d("result: ${response.body()!!.query.searchinfo.totalhits}")},
                         {throwable -> Timber.d(throwable.message)})
 
+        // enum
+        Timber.d("${Day.Morning}")                      // prints MORNING
+        Timber.d("${Day.Morning.ordinal}")              // 0
+        Timber.d("${Day.Morning.name}")                 // prints Morning
+        Timber.d("${Day.values().size}")                // prints 3
+        Timber.d("${Day.valueOf("Morning")}")      // prints MORNING
+
+        for (enum in Day.values()) {
+            println(enum.name)
+        }
+
+        Timber.d("${Months.January.shorthand}")           // prints JAN
+        Months.January.shorthand = "J."
+        Timber.d("${Months.January.shorthand}")           // prints J.
+        Months.February.printSomething()                          //prints Second month of the year.
+        Timber.d(Months.February.hello)
     }
 
     // basic onClickListener
