@@ -6,6 +6,7 @@ import android.view.View
 import android.widget.TextView
 import g.takeru.renshu.R
 import g.takeru.renshu.data.ApiManager
+import g.takeru.renshu.util.JsonUtil
 import kotlinx.android.synthetic.main.activity_main.*
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
@@ -88,8 +89,12 @@ class KotlinActivity : AppCompatActivity() {
         Timber.d("${Months.January.shorthand}")           // prints JAN
         Months.January.shorthand = "J."
         Timber.d("${Months.January.shorthand}")           // prints J.
-        Months.February.printSomething()                          //prints Second month of the year.
+        Months.February.printSomething()                          // prints Second month of the year.
         Timber.d(Months.February.hello)
+
+        // load json file
+        val userList = JsonUtil.LoadListFromRaw(this, R.raw.user_array, User::class.java)
+        Timber.d(userList.size.toString() + "")
     }
 
     // basic onClickListener
