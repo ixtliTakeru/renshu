@@ -67,13 +67,16 @@ class KotlinActivity : AppCompatActivity() {
 
         // api test
         var apiManager = ApiManager.instance
+        ApiManager.instance.hostSelectionInterceptor.setHost("en.wikipedia.org")
         apiManager.api
                 .getDataFromWiki("query", "json", "search", "taiwan")
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
                         {response -> Timber.d("result: ${response.body()!!.query.searchinfo.totalhits}")},
-                        {throwable -> Timber.d(throwable.message)})
+                        {throwable ->
+                            Timber.d(throwable.message)
+                            throwable.printStackTrace() })
 
         // enum
         Timber.d("${Day.Morning}")                      // prints MORNING

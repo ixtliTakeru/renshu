@@ -12,7 +12,7 @@ import rx.Observable
 
 interface Api {
 
-    @GET("api.php")
+    @GET("/w/api.php")
     fun getDataFromWiki(@Query("action") action: String,
                         @Query("format") format: String,
                         @Query("list") list: String,
