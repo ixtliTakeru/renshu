@@ -96,7 +96,7 @@ class KotlinActivity : AppCompatActivity() {
         Timber.d(Months.February.hello)
 
         // load json file
-        val userList = JsonUtil.LoadListFromRaw(this, R.raw.user_array, User::class.java)
+        val userList = JsonUtil.LoadListFromRaw(this, R.raw.user_array, Array<User>::class.java)
         Timber.d(userList.size.toString() + "")
     }
 

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.text.TextUtils;
 
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -13,6 +12,7 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.io.StringWriter;
 import java.io.Writer;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -34,19 +34,20 @@ public class JsonUtil {
         }
     }
 
-    public static <T> List<T> LoadListFromRaw(Context context, int resId, Class<T> clz) {
+    public static <T> List<T> LoadListFromRaw(Context context, int resId, Class<T[]> clz) {
         String jsonString = loadFile(context, resId);
 //        Timber.d("JsonString:\n" + jsonString);
 
         if (TextUtils.isEmpty(jsonString)) {
             return null;
         } else {
-            return new Gson().fromJson(jsonString, new TypeToken<List<T>>() {}.getType());
+            return Arrays.asList(new Gson().fromJson(jsonString, clz));
         }
     }
 
     private static String loadFile(Context context, int resId) {
         try {
+
             InputStream is = context.getResources().openRawResource(resId);
             Writer writer = new StringWriter();
             char[] buffer = new char[1024];
