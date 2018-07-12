@@ -25,7 +25,9 @@
         <activity android:name=".architecture.mvp.LoginActivity" />
 
         <activity android:name=".rx.AsyncToRxActivity"/>
+        <activity android:name=".rx.RxJava2Activity"/>
 
+        <activity android:name=".kotlin.rx.RxKotlinActivity"/>
         <activity android:name=".kotlin.KotlinActivity"/>
         <activity android:name=".kotlin.architecture.mvp.LoginActivity" />
         <activity android:name=".kotlin.SmsReceiverActivity"/>

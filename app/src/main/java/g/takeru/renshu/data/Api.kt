@@ -1,10 +1,11 @@
 package g.takeru.renshu.data
 
 import g.takeru.renshu.data.model.WikiResult
+import io.reactivex.Observable
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
-import rx.Observable
+
 
 /**
  * Created by takeru on 2018/3/26.
