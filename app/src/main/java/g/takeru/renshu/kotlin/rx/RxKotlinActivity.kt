@@ -3,25 +3,37 @@ package g.takeru.renshu.kotlin.rx
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import g.takeru.renshu.R
-import io.reactivex.Observable
+import io.reactivex.*
 import io.reactivex.Observable.create
-import io.reactivex.ObservableEmitter
-import io.reactivex.ObservableOnSubscribe
-import io.reactivex.Observer
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.Disposable
+import io.reactivex.functions.Consumer
 import io.reactivex.rxkotlin.subscribeBy
+import io.reactivex.rxkotlin.toFlowable
 import io.reactivex.rxkotlin.toObservable
 import io.reactivex.schedulers.Schedulers
+import org.reactivestreams.Subscriber
+import org.reactivestreams.Subscription
 import timber.log.Timber
 
 class RxKotlinActivity : AppCompatActivity() {
+
+    /**
+     * ref: https://www.jianshu.com/p/785d9dfb0a5b
+     */
 
     lateinit var disposable : Disposable
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_rx_kotlin)
+
+        /**
+         *  Observable / observer
+         *
+         *  (not support backpressure)
+         *  (not throw MissingBackpressureException and cause OOM)
+         */
 
         // toObservable and subscribeBy (rxKotlin)
         val list = listOf("Alpha", "Beta", "Gamma", "Delta", "Epsilon")
@@ -72,7 +84,7 @@ class RxKotlinActivity : AppCompatActivity() {
                     }
 
                     override fun onError(throwable: Throwable) {
-                        Timber.d("{$throwable.message}")
+                        Timber.d("${throwable.message}")
                     }
                 })
 
@@ -84,7 +96,7 @@ class RxKotlinActivity : AppCompatActivity() {
                         // onNext
                         { result ->  Timber.d(result) },
                         // onError
-                        { throwable ->  Timber.d("{$throwable.message}")},
+                        { throwable ->  Timber.d("${throwable.message}")},
                         // onComplete
                         { Timber.d("complete") },
                         // onSubscribe
@@ -113,7 +125,7 @@ class RxKotlinActivity : AppCompatActivity() {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
                         { result ->  Timber.d(result) },
-                        { throwable ->  Timber.d("{$throwable.message}")}
+                        { throwable ->  Timber.d("${throwable.message}")}
                 )
 
         // handle onNext, onError and on complete
@@ -122,7 +134,7 @@ class RxKotlinActivity : AppCompatActivity() {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(
                         { result ->  Timber.d(result) },
-                        { throwable ->  Timber.d("{$throwable.message}")},
+                        { throwable ->  Timber.d("${throwable.message}")},
                         { Timber.d("complete") }
                 )
 
@@ -139,12 +151,53 @@ class RxKotlinActivity : AppCompatActivity() {
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeBy(
-                        onNext = { Timber.d("disposable: " + it) },
+                        onNext = { Timber.d("disposable: $it") },
                         onComplete = { Timber.d("disposable:: onComplete") }
                 )
 //        disposable.dispose()
 
 
-        
+        /**
+         *  Flowable / Subscriber
+         */
+        list.toFlowable()
+                .subscribe(object : Consumer<String> {
+                    override fun accept(t: String?) {
+                        Timber.d("Flowable: $t")
+                    }
+                })
+
+        list.toFlowable()
+                .subscribe(Consumer<String> { Timber.d("Flowable: $it") })
+
+        list.toFlowable()
+                .subscribe { Timber.d("Flowable: $it") }
+
+        Flowable.range(0, 10)
+                .subscribe(object : Subscriber<Int> {
+                    var subscription : Subscription? = null
+                    override fun onNext(t: Int?) {
+                        Timber.d("onNext--->$t")
+                        subscription?.request(3)
+                    }
+
+                    override fun onComplete() {
+                        Timber.d("onComplete")
+                    }
+
+                    override fun onSubscribe(s: Subscription?) {
+                        Timber.d("onSubscribe start")
+                        subscription = s
+                        subscription?.request(1)
+                        Timber.d("onSubscribe end")
+                    }
+
+                    override fun onError(t: Throwable?) {
+                        Timber.d("onError")
+                    }
+
+                })
     }
 }
+
+

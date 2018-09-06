@@ -7,7 +7,7 @@ import java.io.Serializable;
  * Create a singleton
  */
 
-public class PerfectSingleton implements Serializable{
+public class PerfectSingleton implements Serializable {
 
     // use "volatile" keyword
     private static volatile PerfectSingleton sInstance;
