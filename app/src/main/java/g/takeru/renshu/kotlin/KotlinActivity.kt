@@ -5,11 +5,17 @@ import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.TextView
 import g.takeru.renshu.R
-import g.takeru.renshu.data.ApiManager
+import g.takeru.renshu.kotlin.data.Day
+import g.takeru.renshu.kotlin.data.Months
+import g.takeru.renshu.kotlin.data.model.WikiResult
+import g.takeru.renshu.kotlin.data.retrofit.ApiManager
 import g.takeru.renshu.util.JsonUtil
+import io.reactivex.Observable
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.functions.BiFunction
+import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_main.*
-import rx.android.schedulers.AndroidSchedulers
-import rx.schedulers.Schedulers
+import retrofit2.Response
 import timber.log.Timber
 
 /**
@@ -38,9 +44,9 @@ class KotlinActivity : AppCompatActivity() {
         text.setText("Using Kotlin Android Extensions")
 
         // set click listener
-        text.setOnClickListener({view -> Timber.d("click: " + view.id)})
-        text.setOnClickListener() {view -> Timber.d("click: " + view.id)}
-        text.setOnClickListener{view -> Timber.d("click: " + view.id)}
+        text.setOnClickListener( { view -> Timber.d("click: " + view.id) } )
+        text.setOnClickListener() { view -> Timber.d("click: " + view.id) }
+        text.setOnClickListener { view -> Timber.d("click: " + view.id) }
         text.setOnClickListener(onClickListener1)
         //text.setOnClickListener(onClickListener2)
         //text.setOnClickListener(onClickListener3)
@@ -78,6 +84,44 @@ class KotlinActivity : AppCompatActivity() {
                             Timber.d(throwable.message)
                             throwable.printStackTrace() })
 
+        // api test (using flatMap)
+        // ref: https://ithelp.ithome.com.tw/articles/10197221
+        apiManager.api
+                .getDataFromWiki("query", "json", "search", "taiwan")
+                .subscribeOn(Schedulers.io())
+                .flatMap { response ->
+                    Timber.d("result: ${response.body()!!.query.searchinfo.totalhits}")
+                    Timber.d("return next api")
+                    return@flatMap apiManager.api.getDataFromWiki(
+                            "query", "json", "search", "usa")
+                }
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                        {response -> Timber.d("result: ${response.body()!!.query.searchinfo.totalhits}")},
+                        {throwable ->
+                            Timber.d(throwable.message)
+                            throwable.printStackTrace() })
+
+        // api test (using zip)
+        Observable.zip(
+                apiManager.api.getDataFromWiki("query", "json", "search", "taiwan"),
+                apiManager.api.getDataFromWiki("query", "json", "search", "usa"),
+                BiFunction<Response<WikiResult>, Response<WikiResult>, Int> {
+                    result1, result2 ->
+                    var hit1 = result1.body()!!.query.searchinfo.totalhits
+                    var hit2 = result2.body()!!.query.searchinfo.totalhits
+                    Timber.d("Observable.zip $hit1 $hit2")
+                    hit1 + hit2
+                })
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                        {response -> Timber.d("result sum: $response")},
+                        {throwable ->
+                            Timber.d(throwable.message)
+                            throwable.printStackTrace() })
+
+
         // enum
         Timber.d("${Day.Morning}")                      // prints MORNING
         Timber.d("${Day.Morning.ordinal}")              // 0
@@ -98,6 +142,19 @@ class KotlinActivity : AppCompatActivity() {
         // load json file
         val userList = JsonUtil.LoadListFromRaw(this, R.raw.user_array, Array<User>::class.java)
         Timber.d(userList.size.toString() + "")
+
+        // get interaction from two list
+        var aList = mutableListOf<User>()
+        aList.add(User("abc", 10))
+        aList.add(User("avc", 20))
+        aList.add(User("dd", 15))
+        var bList = mutableListOf<User>()
+        bList.add(User("bc", 10))
+        bList.add(User("avc", 20))
+        bList.add(User("dd", 15))
+        var intersectList = aList.intersect(bList)
+        Timber.d("intersectList: ${intersectList.size}")
+        Timber.d("intersectList: $intersectList")
     }
 
     // basic onClickListener
