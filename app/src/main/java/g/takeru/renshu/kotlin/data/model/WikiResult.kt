@@ -1,4 +1,4 @@
-package g.takeru.renshu.data.model
+package g.takeru.renshu.kotlin.data.model
 
 class WikiResult(val query: Query) {
     data class Query(val searchinfo: SearchInfo)

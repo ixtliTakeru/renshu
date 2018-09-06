@@ -1,6 +1,6 @@
-package g.takeru.renshu.data
+package g.takeru.renshu.kotlin.data.retrofit
 
-import g.takeru.renshu.data.model.WikiResult
+import g.takeru.renshu.kotlin.data.model.WikiResult
 import io.reactivex.Observable
 import retrofit2.Response
 import retrofit2.http.GET

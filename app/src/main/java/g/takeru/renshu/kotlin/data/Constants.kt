@@ -1,4 +1,4 @@
-package g.takeru.renshu.kotlin
+package g.takeru.renshu.kotlin.data
 
 class Constants {
 }
