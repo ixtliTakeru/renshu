@@ -1,4 +1,4 @@
-package g.takeru.renshu.leetcode
+package g.takeru.renshu.kotlin.leetcode
 
 import timber.log.Timber
 

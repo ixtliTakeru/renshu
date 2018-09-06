@@ -1,4 +1,4 @@
-package g.takeru.renshu.leetcode
+package g.takeru.renshu.kotlin.leetcode
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
