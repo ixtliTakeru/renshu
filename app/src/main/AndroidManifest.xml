@@ -32,11 +32,12 @@
         <activity android:name=".kotlin.architecture.mvp.LoginActivity" />
         <activity android:name=".kotlin.SmsReceiverActivity"/>
         <activity android:name=".kotlin.SortListActivity" />
+        <activity android:name=".kotlin.data.model.DataModelTestActivity" />
 
         <activity android:name="g.takeru.renshu.kotlin.animation.LottieActivity" />
         <activity android:name="g.takeru.renshu.kotlin.animation.sharedelement.SharedElementTransitionActivity" />
 
-        <activity android:name=".leetcode.LeetCodeActivity" />
+        <activity android:name="g.takeru.renshu.kotlin.leetcode.LeetCodeActivity" />
 
         <!-- Utils Sample -->
         <activity android:name=".util.DateTimeUtilSampleActivity" />
