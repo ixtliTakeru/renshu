@@ -1,0 +1,201 @@
+{
+  "version": "0.1",
+  "data": {
+    "country": {
+      "hkg": [
+        {
+          "key": "city_central",
+          "label": "Central (Hong Kong)",
+          "category_list": [
+            {
+              "key": "category_art",
+              "label": "Art",
+              "list": [
+                {
+                  "key": "category_art_pop",
+                  "label": "Pop Art",
+                  "set": "A",
+                  "type": "BVC"
+                }
+              ]
+            },
+            {
+              "key": "category_car",
+              "label": "Car",
+              "list": [
+                {
+                  "key": "category_car_toyota",
+                  "label": "Toyota Car",
+                  "set": "A",
+                  "type": "BB"
+                },
+                {
+                  "key": "category_car_honda",
+                  "label": "Honda Car",
+                  "set": "V",
+                  "type": "PAS"
+                }
+              ]
+            },
+            {
+              "key": "hkg_category_camera",
+              "label": "Hong Kong (Camera) ",
+              "list": [
+                {
+                  "key": "hkg_category_camera_sony",
+                  "label": "Sony Camera",
+                  "set": "C",
+                  "type" : "ON"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "twn": [
+        {
+          "key": "city_taipei",
+          "label": "Taipei (Taiwan)",
+          "category_list": [
+            {
+              "key": "category_music",
+              "label": "Music",
+              "list": [
+                {
+                  "key": "category_music_pop",
+                  "label": "Pop (Music)",
+                  "set": "identity",
+                  "type": "national"
+                }
+              ]
+            },
+            {
+              "key": "category_car",
+              "label": "Car",
+              "list": [
+                {
+                  "key": "category_car_toyota",
+                  "label": "TOYOTA",
+                  "set": "B",
+                  "type": "CCA"
+                }
+              ]
+            },
+            {
+              "key": "category_notebook",
+              "label": "Nptebook",
+              "list": [
+                {
+                  "key": "category_notebook_asus",
+                  "label": "ASUS",
+                  "set": "VV",
+                  "type": "SFF"
+                },
+                {
+                  "key": "category_notebook_sony",
+                  "label": "SONY",
+                  "set": "VV",
+                  "type": "DD"
+                },
+                {
+                  "key": "document_notebook_acer",
+                  "label": "ACER",
+                  "set": "AD",
+                  "type": "AAS"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "city_tainan",
+          "label": "Tainan (Taiwan)",
+          "category_list": [
+            {
+              "key": "category_hotel",
+              "label": "Hotel",
+              "list": [
+                {
+                  "key": "category_hotel_old_house",
+                  "label": "Old House",
+                  "set": "CV",
+                  "type": "A"
+                }
+              ]
+            },
+            {
+              "key": "category_music",
+              "label": "Music",
+              "list": [
+                {
+                  "key": "category_music_jazz",
+                  "label": "Jazx",
+                  "set": "JAXZ",
+                  "type": "PA"
+                }
+              ]
+            },
+            {
+              "key": "category_photo",
+              "label": "Photo",
+              "list": [
+                {
+                  "key": "category_type_photo_digi",
+                  "label": "Digi Photo",
+                  "set": "D",
+                  "type" : "P"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    "non_country": {
+      "others": [
+        {
+          "key": "worldwide",
+          "label": "Worldwide",
+          "category_list": [
+            {
+              "key": "category_company",
+              "label": "Company (worldwide)",
+              "list": [
+                {
+                  "key": "category_company_apple",
+                  "label": "Apple",
+                  "set": "RES",
+                  "type": "B"
+                },
+                {
+                  "key": "category_company_sony",
+                  "label": "Utility Bill",
+                  "set": "CE",
+                  "type": "LL"
+                },
+                {
+                  "key": "category_company_google",
+                  "label": "Google",
+                  "set": "OL",
+                  "type": "AD"
+                }
+              ]
+            },
+            {
+              "key": "category_wine",
+              "label": "Wine",
+              "list": [
+                {
+                  "key": "category_wine_red",
+                  "label": "Red Wine",
+                  "set": "S",
+                  "type": "P"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
