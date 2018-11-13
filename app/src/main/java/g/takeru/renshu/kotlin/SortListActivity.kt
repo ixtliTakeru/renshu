@@ -1,7 +1,10 @@
 package g.takeru.renshu.kotlin
 
+import android.graphics.drawable.InsetDrawable
 import android.os.Bundle
+import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import g.takeru.renshu.R
@@ -36,7 +39,7 @@ class SortListActivity: AppCompatActivity() {
         userList.add(User("Emi", 32))
         userList.add(User("Takeru", 31))
 
-        sortUserList(userList)
+        sortUserList2(userList)
 
         for (i: Int in 0 until userList.size){
             Timber.d("user: " + userList[i].name + " " + userList[i].age)
@@ -46,6 +49,14 @@ class SortListActivity: AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = adapter
 
+        // add divider with horizontal margin
+        val divider = ContextCompat.getDrawable(this, R.drawable.divider_line_dark)!!
+        val dividerWithMargin = InsetDrawable(divider, 40, 0, 40, 0)
+        val itemDecor = DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
+        itemDecor.setDrawable(dividerWithMargin)
+        recyclerView.addItemDecoration(itemDecor)
+
+        // set btn click event
         addBtn.setOnClickListener(addUserClickListener)
         delBtn.setOnClickListener(delUserClickListener)
         changeBtn.setOnClickListener(changeUserClickListener)
@@ -53,6 +64,11 @@ class SortListActivity: AppCompatActivity() {
 
     private fun sortUserList(list: MutableList<User>): MutableList<User>{
         Collections.sort(list, countryComparator)
+        return list
+    }
+
+    private fun sortUserList2(list: MutableList<User>): MutableList<User>{
+        list.sortBy { it.age }
         return list
     }
 

@@ -121,6 +121,25 @@ class KotlinActivity : AppCompatActivity() {
                             Timber.d(throwable.message)
                             throwable.printStackTrace() })
 
+        // api test (using zip with Observable List)
+        var observableList = mutableListOf<Observable<Response<WikiResult>>>()
+        observableList.add(apiManager.api.getDataFromWiki("query", "json", "search", "taiwan"))
+        observableList.add(apiManager.api.getDataFromWiki("query", "json", "search", "usa"))
+        observableList.add(apiManager.api.getDataFromWiki("query", "json", "search", "japan"))
+
+        Observable.zip(observableList) { it ->
+            var resultList = mutableListOf<WikiResult>()
+            for (i in it.indices) resultList.add((it[i] as Response<WikiResult>).body()!!)
+            return@zip resultList
+        }
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                        {response ->
+                            Timber.d("result sum: ${response.size}")},
+                        {throwable ->
+                            Timber.d(throwable.message)
+                            throwable.printStackTrace() })
 
         // enum
         Timber.d("${Day.Morning}")                      // prints MORNING
@@ -155,6 +174,14 @@ class KotlinActivity : AppCompatActivity() {
         var intersectList = aList.intersect(bList)
         Timber.d("intersectList: ${intersectList.size}")
         Timber.d("intersectList: $intersectList")
+
+        // groupby
+        // result: {a=[User(name=abc, age=10), User(name=avc, age=20)], o=[User(name=dd, age=15)]
+        var a = aList.groupBy {
+            if (it.name.startsWith("a", true)) "A"
+            else "o"
+        }
+        Timber.d("groupby: ${a.toString()}")
     }
 
     // basic onClickListener
