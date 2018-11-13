@@ -1,13 +1,14 @@
 package g.takeru.renshu.kotlin.animation
 
 import android.animation.Animator
-import android.graphics.Color
+import android.animation.ValueAnimator
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.SeekBar
-import com.airbnb.lottie.SimpleColorFilter
 import g.takeru.renshu.R
 import kotlinx.android.synthetic.main.activity_lottie.*
+
+
 
 
 /**
@@ -19,20 +20,13 @@ class LottieActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lottie)
 
-        // Adding a color filter to the whole view
-        var colorFilter = SimpleColorFilter(Color.RED)
-
         // control speed
 //        val animator = ValueAnimator.ofFloat(0f, 1f).setDuration(10000)
 
         // lottie animation
         lottieAnimationView2.setAnimation("lottie/unlock.json")
-        lottieAnimationView2.loop(true)
-//        lottieAnimationView2.scale = minOf(scale, 1f)
-        lottieAnimationView2.addColorFilter(colorFilter)
+        lottieAnimationView2.repeatCount = ValueAnimator.INFINITE
         lottieAnimationView2.playAnimation()
-
-//        Timber.d("Frame: " + lottieAnimationView2.scale);
 
         // TODO progress seekBar
 //        scaleSeekBar.progress = (lottieAnimationView2.scale * 50F).toInt()

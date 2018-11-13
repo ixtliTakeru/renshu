@@ -21,7 +21,7 @@ buildscript {
         fcmVersion = '11.4.2'
         timberVersion = '4.7.0'
         okhttpVersion = '3.10.0'
-        lottieVersion = "2.5.1"
+        lottieVersion = '2.5.1'
         fabricVersion = '1.25.4'
         daggerVersion= '2.16'
         butterKnifeVersion = '8.8.1'
