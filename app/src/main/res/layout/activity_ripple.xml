@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/darker_gray">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/RippleTitle"
+            android:text="> android:attr/selectableItemBackground"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/general_margin"
+            android:text="Border"
+            android:background="?android:attr/selectableItemBackground"/>
+
+        <TextView
+            style="@style/RippleTitle"
+            android:text="> android:attr/selectableItemBackgroundBorderless" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/general_margin"
+            android:text="Borderless"
+            android:background="?android:attr/selectableItemBackgroundBorderless"/>
+
+        <TextView
+            style="@style/RippleTitle"
+            android:text="> drawable ripple borderless" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/general_margin"
+            android:padding="10dp"
+            android:clickable="true"
+            android:text="drawable ripple borderless"
+            android:background="@drawable/ripple_black_borderless"/>
+
+        <TextView
+            style="@style/RippleTitle"
+            android:text="> drawable ripple (background)" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/general_margin"
+            android:clickable="true"
+            android:padding="10dp"
+            android:text="drawable ripple with background"
+            android:background="@drawable/bg_ripple_black"/>
+
+        <TextView
+            style="@style/RippleTitle"
+            android:text="> drawable ripple (mask)" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/general_margin"
+            android:clickable="true"
+            android:padding="10dp"
+            android:text="drawable ripple with mask"
+            android:background="@drawable/ripple_black_mask"/>
+
+        <TextView
+            style="@style/RippleTitle"
+            android:text="> drawable ripple (drawable mask)" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/general_margin"
+            android:clickable="true"
+            android:padding="15dp"
+            android:text="drawable ripple with drawable mask"
+            android:background="@drawable/ripple_black_drawable_mask"/>
+
+        <TextView
+            style="@style/RippleTitle"
+            android:text="> drawable ripple (mask and background)" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/general_margin"
+            android:clickable="true"
+            android:padding="15dp"
+            android:text="drawable ripple with drawable mask"
+            android:background="@drawable/ripple_black_drawable_mask"/>
+
+        <TextView
+            style="@style/RippleTitle"
+            android:text="> drawable ripple (mask and background)" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/general_margin"
+            android:layout_marginBottom="@dimen/general_margin"
+            android:clickable="true"
+            android:padding="15dp"
+            android:text="drawable ripple with drawable mask and drawable background"
+            android:background="@drawable/bg_ripple_black_drawable_mask"/>
+    </LinearLayout>
+
+
+</ScrollView>

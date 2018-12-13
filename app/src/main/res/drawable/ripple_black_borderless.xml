@@ -1,0 +1,4 @@
+<!-- An black borderless ripple. -->
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="@android:color/black">
+</ripple>

@@ -1,0 +1,11 @@
+<!-- An colorAccent rectangle background with black ripple. -->
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="@android:color/black">
+
+    <item
+        android:id="@android:id/background" >
+        <shape>
+            <solid android:color="@color/colorAccent" />
+        </shape>
+    </item>
+</ripple>
