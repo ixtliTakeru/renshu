@@ -38,6 +38,7 @@
         <activity android:name="g.takeru.renshu.kotlin.animation.sharedelement.SharedElementTransitionActivity" />
 
         <activity android:name="g.takeru.renshu.kotlin.leetcode.LeetCodeActivity" />
+        <activity android:name="g.takeru.renshu.kotlin.FragmentContainerActivity" />
 
         <!-- Utils Sample -->
         <activity android:name=".util.DateTimeUtilSampleActivity" />
