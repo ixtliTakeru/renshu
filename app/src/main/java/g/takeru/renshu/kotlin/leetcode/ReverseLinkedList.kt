@@ -1,5 +1,8 @@
 package g.takeru.renshu.kotlin.leetcode
 
+import g.takeru.renshu.kotlin.leetcode.`object`.ListNode
+import g.takeru.renshu.kotlin.leetcode.`object`.printLinkedList
+
 /**
  * Created by takeru on 2018/3/20.
  */

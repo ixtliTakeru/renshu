@@ -1,4 +1,4 @@
-package g.takeru.renshu.kotlin.leetcode
+package g.takeru.renshu.kotlin.leetcode.`object`
 
 /**
  * Created by takeru on 2018/3/19.

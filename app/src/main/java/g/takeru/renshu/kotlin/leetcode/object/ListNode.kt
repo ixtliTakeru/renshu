@@ -1,4 +1,4 @@
-package g.takeru.renshu.kotlin.leetcode
+package g.takeru.renshu.kotlin.leetcode.`object`
 
 import timber.log.Timber
 

@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import g.takeru.renshu.R
+import g.takeru.renshu.kotlin.leetcode.`object`.Problem
 import kotlinx.android.synthetic.main.listitem_user.view.*
 
 /**

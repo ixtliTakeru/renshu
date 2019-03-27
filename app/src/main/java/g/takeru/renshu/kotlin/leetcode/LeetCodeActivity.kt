@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import g.takeru.renshu.R
+import g.takeru.renshu.kotlin.leetcode.`object`.Problem
 import kotlinx.android.synthetic.main.activity_leetcode.*
 
 /**
@@ -17,12 +18,15 @@ class LeetCodeActivity : AppCompatActivity(){
 
         // create problem list
         var problemList : MutableList<Problem> = ArrayList()
-        problemList.add(Problem(1, "Two Sum", { TwoSum().testing() }))
-        problemList.add(Problem(2, "Add Two Numbers", { AddTwoNumbers().testing() }))
-        problemList.add(Problem(7, "Reverse Integer", { ReverseInteger().testing() }))
-        problemList.add(Problem(9, "Palindrome Number", { PalindromeNumber().testing() }))
-        problemList.add(Problem(206, "Reverse Linked List", { ReverseLinkedList().testing() }))
-        problemList.add(Problem(334, "Reverse String", { ReverseString().testing() }))
+        problemList.add(Problem(1, "Two Sum") { TwoSum().testing() })
+        problemList.add(Problem(2, "Add Two Numbers") { AddTwoNumbers().testing() })
+        problemList.add(Problem(7, "Reverse Integer") { ReverseInteger().testing() })
+        problemList.add(Problem(9, "Palindrome Number") { PalindromeNumber().testing() })
+        problemList.add(Problem(206, "Reverse Linked List") { ReverseLinkedList().testing() })
+        problemList.add(Problem(334, "Reverse String") { ReverseString().testing() })
+
+        // not belong to LeetCode
+        problemList.add(Problem(99999, "Minimum Depth of a Binary Tree") { MinimumDepthOfBinaryTree().testing() })
 
 
         // initial adapter
