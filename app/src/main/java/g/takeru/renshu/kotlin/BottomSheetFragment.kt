@@ -1,14 +1,17 @@
 package g.takeru.renshu.kotlin
 
 import android.os.Bundle
-import android.support.design.widget.BottomSheetDialog
-import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import kotlinx.android.synthetic.main.fragment_bottom_sheet.*
+import androidx.fragment.app.Fragment
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import g.takeru.renshu.databinding.FragmentBottomSheetBinding
 
 class BottomSheetFragment : Fragment() {
+
+    private var _binding: FragmentBottomSheetBinding? = null
+    val binding get() = _binding!!
 
     fun newInstance() : BottomSheetFragment {
         val fragment = BottomSheetFragment()
@@ -18,17 +21,23 @@ class BottomSheetFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(g.takeru.renshu.R.layout.fragment_bottom_sheet, container, false)
+        _binding = FragmentBottomSheetBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        bottomSheetBtn.setOnClickListener { showBottomSheet() }
+        binding.bottomSheetBtn.setOnClickListener { showBottomSheet() }
+    }
+
+    override fun onDestroyView() {
+        _binding = null
+        super.onDestroyView()
     }
 
     private fun showBottomSheet() {
-        val dialog = BottomSheetDialog(activity!!)
+        val dialog = BottomSheetDialog(requireActivity())
         val view = layoutInflater.inflate(g.takeru.renshu.R.layout.dialog_bottom_sheet, null)
         dialog.setContentView(view)
         dialog.show()

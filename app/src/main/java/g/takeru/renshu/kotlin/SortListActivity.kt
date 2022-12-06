@@ -2,13 +2,13 @@ package g.takeru.renshu.kotlin
 
 import android.graphics.drawable.InsetDrawable
 import android.os.Bundle
-import android.support.v4.content.ContextCompat
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.DividerItemDecoration
-import android.support.v7.widget.LinearLayoutManager
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.LinearLayoutManager
 import g.takeru.renshu.R
-import kotlinx.android.synthetic.main.activity_list.*
+import g.takeru.renshu.databinding.ActivityListBinding
 import org.jetbrains.anko.toast
 import timber.log.Timber
 import java.util.*
@@ -20,12 +20,15 @@ import kotlin.collections.ArrayList
  */
 class SortListActivity: AppCompatActivity() {
 
+    private lateinit var binding: ActivityListBinding
+
     private var userList : MutableList<User> = ArrayList()
     private var adapter = UserListAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list)
+        binding = ActivityListBinding.inflate(layoutInflater)
 
         userList.add(User("Takeru", 20))
         userList.add(User("Emi", 22))
@@ -45,21 +48,21 @@ class SortListActivity: AppCompatActivity() {
             Timber.d("user: " + userList[i].name + " " + userList[i].age)
         }
 
-        adapter = UserListAdapter(userList, itemClickListener = onClickListener)
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = adapter
+        adapter = UserListAdapter(this, userList, itemClickListener = onClickListener)
+        binding.recyclerView.layoutManager = LinearLayoutManager(this)
+        binding.recyclerView.adapter = adapter
 
         // add divider with horizontal margin
         val divider = ContextCompat.getDrawable(this, R.drawable.divider_line_dark)!!
         val dividerWithMargin = InsetDrawable(divider, 40, 0, 40, 0)
         val itemDecor = DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
         itemDecor.setDrawable(dividerWithMargin)
-        recyclerView.addItemDecoration(itemDecor)
+        binding.recyclerView.addItemDecoration(itemDecor)
 
         // set btn click event
-        addBtn.setOnClickListener(addUserClickListener)
-        delBtn.setOnClickListener(delUserClickListener)
-        changeBtn.setOnClickListener(changeUserClickListener)
+        binding.addBtn.setOnClickListener(addUserClickListener)
+        binding.delBtn.setOnClickListener(delUserClickListener)
+        binding.changeBtn.setOnClickListener(changeUserClickListener)
     }
 
     private fun sortUserList(list: MutableList<User>): MutableList<User>{

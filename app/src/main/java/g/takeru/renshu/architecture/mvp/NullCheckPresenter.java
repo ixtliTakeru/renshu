@@ -1,6 +1,7 @@
 package g.takeru.renshu.architecture.mvp;
 
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
 
 import java.lang.ref.WeakReference;
 import java.lang.reflect.ParameterizedType;

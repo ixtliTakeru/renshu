@@ -1,7 +1,8 @@
 package g.takeru.renshu.rx;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.concurrent.Callable;
 
@@ -24,7 +25,7 @@ import timber.log.Timber;
  * ref: https://artemzin.com/blog/rxjava-defer-execution-of-function-via-fromcallable/
  */
 
-public class AsyncToRxActivity extends AppCompatActivity{
+public class AsyncToRxActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

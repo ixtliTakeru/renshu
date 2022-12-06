@@ -4,7 +4,7 @@ import android.Manifest
 import android.content.IntentFilter
 import android.os.Build
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionDeniedResponse
@@ -12,8 +12,8 @@ import com.karumi.dexter.listener.PermissionGrantedResponse
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.single.PermissionListener
 import g.takeru.renshu.R
+import g.takeru.renshu.databinding.ActivityMainBinding
 import g.takeru.renshu.receiver.SmsReceiver
-import kotlinx.android.synthetic.main.activity_main.*
 import timber.log.Timber
 
 
@@ -22,12 +22,14 @@ import timber.log.Timber
  */
 class SmsReceiverActivity : AppCompatActivity(){
 
+    private lateinit var binding: ActivityMainBinding
     private lateinit var smsReceiver: SmsReceiver
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        text.setText("why")
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding.text.text = "why"
     }
 
     override fun onResume() {
@@ -55,7 +57,7 @@ class SmsReceiverActivity : AppCompatActivity(){
 
     private fun setSmsReceiver() {
         smsReceiver = SmsReceiver()
-        smsReceiver.setOnReceivedMessageListener { code ->  text.setText(code)}
+        smsReceiver.setOnReceivedMessageListener { code -> binding.text.text = code }
     }
 
     private fun checkPermission() {

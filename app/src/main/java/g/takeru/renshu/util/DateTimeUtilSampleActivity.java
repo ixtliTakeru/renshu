@@ -1,8 +1,9 @@
 package g.takeru.renshu.util;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Date;
 
@@ -15,7 +16,7 @@ import static g.takeru.renshu.util.DateTimeUtil.FORMAT_T;
  * Created by takeru on 2018/4/12.
  */
 
-public class DateTimeUtilSampleActivity extends AppCompatActivity{
+public class DateTimeUtilSampleActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

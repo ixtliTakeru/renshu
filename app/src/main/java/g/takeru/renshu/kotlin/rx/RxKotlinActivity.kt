@@ -1,8 +1,10 @@
 package g.takeru.renshu.kotlin.rx
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import g.takeru.renshu.R
+import g.takeru.renshu.databinding.ActivityMainBinding
+import g.takeru.renshu.databinding.ActivityRxKotlinBinding
 import io.reactivex.*
 import io.reactivex.Observable.create
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -22,11 +24,13 @@ class RxKotlinActivity : AppCompatActivity() {
      * ref: https://www.jianshu.com/p/785d9dfb0a5b
      */
 
+    private lateinit var binding: ActivityRxKotlinBinding
     lateinit var disposable : Disposable
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_rx_kotlin)
+        binding = ActivityRxKotlinBinding.inflate(layoutInflater)
 
         /**
          *  Observable / observer

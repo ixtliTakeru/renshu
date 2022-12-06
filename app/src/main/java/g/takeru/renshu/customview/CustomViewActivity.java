@@ -1,15 +1,16 @@
 package g.takeru.renshu.customview;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.PopupMenu;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.PopupMenu;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import g.takeru.renshu.R;
 import g.takeru.renshu.customview.blur.BlurFragment;
@@ -22,7 +23,7 @@ import timber.log.Timber;
  * Created by takeru on 2018/3/22.
  */
 
-public class CustomViewActivity extends AppCompatActivity{
+public class CustomViewActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

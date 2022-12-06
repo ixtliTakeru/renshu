@@ -44,8 +44,8 @@ class ApiManager {
 
         // okHttp interceptor for add header
         val headerInterceptor = Interceptor { chain ->
-            var request = chain.request()
-            var requestBuilder = request.newBuilder().method(request.method(), request.body())
+            val request = chain.request()
+            val requestBuilder = request.newBuilder().method(request.method, request.body)
 //            requestBuilder.addHeader("deviceId", "xxxxx")
             return@Interceptor chain.proceed(requestBuilder.build())
         }
@@ -79,7 +79,7 @@ class HostSelectionInterceptor : Interceptor {
         var request = chain.request()
         val host = this.host
         if (host != null) {
-            val newUrl = request.url().newBuilder()
+            val newUrl = request.url.newBuilder()
                     .host(host)
                     .build()
             request = request.newBuilder()

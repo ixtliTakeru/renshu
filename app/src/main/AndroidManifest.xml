@@ -4,6 +4,7 @@
 
     <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
 
     <application
         android:name=".RenShuApplication"
@@ -33,6 +34,8 @@
         <activity android:name=".kotlin.SmsReceiverActivity"/>
         <activity android:name=".kotlin.SortListActivity" />
         <activity android:name=".kotlin.data.model.DataModelTestActivity" />
+        <activity android:name=".kotlin.PinCodeActivity" />
+        <activity android:name=".kotlin.animation.RippleActivity" />
 
         <activity android:name="g.takeru.renshu.kotlin.animation.LottieActivity" />
         <activity android:name="g.takeru.renshu.kotlin.animation.sharedelement.SharedElementTransitionActivity" />
@@ -61,7 +64,7 @@
 
         <!-- File Provider -->
         <provider
-            android:name="android.support.v4.content.FileProvider"
+            android:name="androidx.core.content.FileProvider"
             android:authorities="${applicationId}.provider"
             android:exported="false"
             android:grantUriPermissions="true">

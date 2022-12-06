@@ -1,7 +1,8 @@
 package g.takeru.renshu;
 
 import android.app.Application;
-import android.support.annotation.Nullable;
+
+import androidx.annotation.Nullable;
 
 import timber.log.Timber;
 

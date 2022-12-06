@@ -5,7 +5,7 @@ package g.takeru.renshu.kotlin
  * ref: https://medium.com/@BladeCoder/kotlin-singletons-with-argument-194ef06edd9e
  */
 
-class Singleton private constructor(){
+class Singleton private constructor() {
     init {
         println("This ($this) is a singleton")
     }

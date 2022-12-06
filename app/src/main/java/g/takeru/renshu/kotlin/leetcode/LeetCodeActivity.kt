@@ -1,11 +1,10 @@
 package g.takeru.renshu.kotlin.leetcode
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
-import g.takeru.renshu.R
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import g.takeru.renshu.databinding.ActivityLeetcodeBinding
 import g.takeru.renshu.kotlin.leetcode.`object`.Problem
-import kotlinx.android.synthetic.main.activity_leetcode.*
 
 /**
  * Created by takeru on 2018/3/13.
@@ -14,10 +13,11 @@ class LeetCodeActivity : AppCompatActivity(){
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_leetcode)
+        val binding = ActivityLeetcodeBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         // create problem list
-        var problemList : MutableList<Problem> = ArrayList()
+        val problemList : MutableList<Problem> = ArrayList()
         problemList.add(Problem(1, "Two Sum") { TwoSum().testing() })
         problemList.add(Problem(2, "Add Two Numbers") { AddTwoNumbers().testing() })
         problemList.add(Problem(7, "Reverse Integer") { ReverseInteger().testing() })
@@ -31,7 +31,7 @@ class LeetCodeActivity : AppCompatActivity(){
 
         // initial adapter
         val listAdapter = ProblemListAdapter(problemList)
-        recyclerViewProblemList.layoutManager = LinearLayoutManager(this)
-        recyclerViewProblemList.adapter = listAdapter
+        binding.recyclerViewProblemList.layoutManager = LinearLayoutManager(this)
+        binding.recyclerViewProblemList.adapter = listAdapter
     }
 }

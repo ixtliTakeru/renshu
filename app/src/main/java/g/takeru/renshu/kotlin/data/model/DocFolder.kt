@@ -21,7 +21,7 @@ data class DocFolder (var version: String,
  */
 @Parcelize
 data class CountryData(var country: Map<String, @JvmSuppressWildcards List<CityData>>,
-                   var non_country: Map<String, @JvmSuppressWildcards List<CityData>>) : Parcelable
+                       var non_country: Map<String, @JvmSuppressWildcards List<CityData>>) : Parcelable
 
 @Parcelize
 data class CityData(val key: String,

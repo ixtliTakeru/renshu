@@ -2,7 +2,7 @@ package g.takeru.renshu.kotlin.architecture.mvp
 
 import android.content.Context
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import g.takeru.renshu.kotlin.User
 import timber.log.Timber
 

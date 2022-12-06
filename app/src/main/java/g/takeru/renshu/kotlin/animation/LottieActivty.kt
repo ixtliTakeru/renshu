@@ -3,30 +3,33 @@ package g.takeru.renshu.kotlin.animation
 import android.animation.Animator
 import android.animation.ValueAnimator
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.widget.SeekBar
+import androidx.appcompat.app.AppCompatActivity
 import g.takeru.renshu.R
-import kotlinx.android.synthetic.main.activity_lottie.*
-
-
-
+import g.takeru.renshu.databinding.ActivityLottieBinding
+import g.takeru.renshu.databinding.ActivityMainBinding
 
 /**
  * Created by takeru on 2017/11/21.
+ * ref: https://my.oschina.net/u/3389024/blog/897613
  */
+
 class LottieActivity : AppCompatActivity(){
+
+    private lateinit var binding: ActivityLottieBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lottie)
+        binding = ActivityLottieBinding.inflate(layoutInflater)
 
         // control speed
 //        val animator = ValueAnimator.ofFloat(0f, 1f).setDuration(10000)
 
         // lottie animation
-        lottieAnimationView2.setAnimation("lottie/unlock.json")
-        lottieAnimationView2.repeatCount = ValueAnimator.INFINITE
-        lottieAnimationView2.playAnimation()
+        binding.lottieAnimationView2.setAnimation("lottie/unlock.json")
+        binding.lottieAnimationView2.repeatCount = ValueAnimator.INFINITE
+        binding.lottieAnimationView2.playAnimation()
 
         // TODO progress seekBar
 //        scaleSeekBar.progress = (lottieAnimationView2.scale * 50F).toInt()

@@ -1,12 +1,13 @@
 package g.takeru.renshu.kotlin
 
-import android.support.v7.util.DiffUtil
-import android.support.v7.widget.RecyclerView
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.RecyclerView
 import g.takeru.renshu.R
-import kotlinx.android.synthetic.main.listitem_user.view.*
+import g.takeru.renshu.databinding.ListitemUserBinding
 
 /**
  * Created by takeru on 2017/9/12.
@@ -14,28 +15,31 @@ import kotlinx.android.synthetic.main.listitem_user.view.*
 
 internal class UserListAdapter : RecyclerView.Adapter<UserListAdapter.UserViewHolder> {
 
+    private lateinit var context: Context
     private lateinit var userList: MutableList<User>
     private lateinit var itemClickListener: (User)->Unit
 
     constructor()
 
-    constructor(userList: MutableList<User>,
+    constructor(context: Context,
+                userList: MutableList<User>,
                 itemClickListener: (User)->Unit) {
+        this.context = context
         this.userList = userList
         this.itemClickListener = itemClickListener
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserListAdapter.UserViewHolder {
-        return UserViewHolder(
-                LayoutInflater.from(parent.context).inflate(R.layout.listitem_user, parent, false))
-    }
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder =
+        UserViewHolder(ListitemUserBinding.inflate(LayoutInflater.from(parent.context), parent, false))
 
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
         val user = userList[position]
 
-        holder.container.setOnClickListener{itemClickListener(user)}
-        holder.nameTv.text = user.name
-        holder.ageTv.text = user.age.toString()
+        holder.itemView.setOnClickListener{itemClickListener(user)}
+        holder.binding.apply {
+            listitemUserName.text = user.name
+            listitemUserAge.text = user.age.toString()
+        }
     }
 
 //    override fun getItemCount(): Int {
@@ -45,11 +49,8 @@ internal class UserListAdapter : RecyclerView.Adapter<UserListAdapter.UserViewHo
     // convert to expression body
     override fun getItemCount(): Int = userList.size
 
-    class UserViewHolder (view: View) : RecyclerView.ViewHolder(view){
-        val container = itemView.listitem_user_container
-        val nameTv = itemView.listitem_user_name
-        val ageTv = itemView.listitem_user_age
-    }
+    class UserViewHolder (val binding: ListitemUserBinding)
+        : RecyclerView.ViewHolder(binding.root)
 
     fun addUser(user: User, index: Int) {
         userList.add(index, user)

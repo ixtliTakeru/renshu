@@ -1,7 +1,7 @@
 package g.takeru.renshu.kotlin.animation
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import g.takeru.renshu.R
 
 class RippleActivity : AppCompatActivity()  {

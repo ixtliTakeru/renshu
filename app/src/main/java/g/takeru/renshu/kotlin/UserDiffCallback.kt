@@ -1,12 +1,12 @@
 package g.takeru.renshu.kotlin
 
-import android.support.v7.util.DiffUtil.Callback
+import androidx.recyclerview.widget.DiffUtil
 
 /**
  * Created by takeru on 2018/3/6.
  */
 class UserDiffCallback(private val oldList: List<User>,
-                       private val newList: List<User>) : Callback() {
+                       private val newList: List<User>) : DiffUtil.Callback() {
 
 
     override fun getOldListSize(): Int = oldList.size

@@ -3,7 +3,8 @@ package g.takeru.renshu.util;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Environment;
-import android.support.v4.content.FileProvider;
+
+import androidx.core.content.FileProvider;
 
 import java.io.File;
 import java.text.SimpleDateFormat;

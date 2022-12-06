@@ -1,10 +1,11 @@
 package g.takeru.renshu.kotlin
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import g.takeru.renshu.R
+import g.takeru.renshu.databinding.ActivityMainBinding
 import g.takeru.renshu.kotlin.data.Day
 import g.takeru.renshu.kotlin.data.Months
 import g.takeru.renshu.kotlin.data.model.WikiResult
@@ -14,7 +15,6 @@ import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.functions.BiFunction
 import io.reactivex.schedulers.Schedulers
-import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Response
 import timber.log.Timber
 
@@ -24,9 +24,12 @@ import timber.log.Timber
 
 class KotlinActivity : AppCompatActivity() {
 
+    private lateinit var binding: ActivityMainBinding
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
 
         bindView()
     }
@@ -41,13 +44,13 @@ class KotlinActivity : AppCompatActivity() {
         textView.setText("Basic View Binding")
 
         // Using Kotlin Android Extensions
-        text.setText("Using Kotlin Android Extensions")
+        binding.text.setText("Using Kotlin Android Extensions")
 
         // set click listener
-        text.setOnClickListener( { view -> Timber.d("click: " + view.id) } )
-        text.setOnClickListener() { view -> Timber.d("click: " + view.id) }
-        text.setOnClickListener { view -> Timber.d("click: " + view.id) }
-        text.setOnClickListener(onClickListener1)
+        binding.text.setOnClickListener( { view -> Timber.d("click: " + view.id) } )
+        binding.text.setOnClickListener() { view -> Timber.d("click: " + view.id) }
+        binding.text.setOnClickListener { view -> Timber.d("click: " + view.id) }
+        binding.text.setOnClickListener(onClickListener1)
         //text.setOnClickListener(onClickListener2)
         //text.setOnClickListener(onClickListener3)
 

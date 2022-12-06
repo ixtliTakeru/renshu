@@ -1,8 +1,9 @@
 package g.takeru.renshu;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +12,7 @@ import g.takeru.renshu.kotlin.User;
 import g.takeru.renshu.kotlin.UserListAdapter;
 import kotlin.Unit;
 
-public class CallKotlinActivity extends AppCompatActivity{
+public class CallKotlinActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -21,7 +22,7 @@ public class CallKotlinActivity extends AppCompatActivity{
 
         // when using java to call kotlin high-order function
         List<User> userList = new ArrayList<>();
-        new UserListAdapter(userList, v -> {
+        new UserListAdapter(this, userList, v -> {
            // do Something
            return Unit.INSTANCE;
         });
